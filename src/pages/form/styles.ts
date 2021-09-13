@@ -187,7 +187,7 @@ export const Content = styled.div`
       .text {
         .top {
           h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
           }
 
           p {
@@ -203,6 +203,10 @@ export const Content = styled.div`
       .form {
         margin-top: 4rem;
         font-size: 1.8rem;
+
+        input.form + input.form {
+          margin-top: 2.4rem;
+        }
       }
     }
   }

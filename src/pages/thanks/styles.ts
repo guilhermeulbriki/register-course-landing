@@ -106,7 +106,7 @@ export const Content = styled.div`
   @media (max-width: 600px) {
     .container {
       h1 {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
       }
 
       p {
