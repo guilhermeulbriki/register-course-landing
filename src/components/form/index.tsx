@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import InputMask from 'react-input-mask';
 
@@ -16,33 +16,37 @@ const FormComponent: React.FC = () => {
 
   const history = useHistory();
 
-  const handleSubmitForm = useCallback(() => {
-    console.log(name, role, whatsapp, email);
+  const handleSubmitForm = useCallback((e) => {
+    console.log(name, role, whatsapp, email,e);
 
     setName('');
     setRole('');
     setWhatsapp('');
     setEmail('');
 
-    history.push('/thanks');
   }, [email, name, role, whatsapp, history]);
 
+  useEffect(() => {
+    console.log('asddd')
+  }, [])
   return (
     <Container>
       <img className="planeta" src={planeta} alt="planeta-illustra" />
-      <form>
+      <form onSubmit={handleSubmitForm} action="/thanks">
         <h2>Preencha seus dados:</h2>
 
         <input
           value={name}
+          name="nome"
           onChange={(e) => setName(e.target.value)}
           type="text"
           required
           className="form"
-          placeholder="Seu nome"
+          placeholder="Seu nomee"
         />
         <input
           value={role}
+          name="cargo"
           onChange={(e) => setRole(e.target.value)}
           type="text"
           required
@@ -51,6 +55,7 @@ const FormComponent: React.FC = () => {
         />
         <InputMask
           value={whatsapp}
+          name="zap"
           onChange={(e) => setWhatsapp(e.target.value)}
           placeholder="Seu Whatsapp"
           mask="(99) 99999-9999"
@@ -59,6 +64,7 @@ const FormComponent: React.FC = () => {
         />
         <input
           value={email}
+          name="email"
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           required
@@ -66,9 +72,8 @@ const FormComponent: React.FC = () => {
           placeholder="Seu E-mail"
         />
 
-        <button onClick={handleSubmitForm} className="primary">
-          Fazer meu cadastro
-        </button>
+          
+        <input className="primary" type="submit" placeholder="Fazer meu cadastro"/>
       </form>
       <img className="dinheiro" src={dinheiro} alt="dinheiro-icon" />
       <img className="cartao" src={cartao} alt="cartao-icon" />
