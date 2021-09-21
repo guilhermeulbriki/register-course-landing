@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import InputMask from 'react-input-mask';
 
 import planeta from '../../assets/planeta.svg';
@@ -14,25 +13,10 @@ const FormComponent: React.FC = () => {
   const [whatsapp, setWhatsapp] = useState('');
   const [email, setEmail] = useState('');
 
-  const history = useHistory();
-
-  const handleSubmitForm = useCallback((e) => {
-    console.log(name, role, whatsapp, email,e);
-
-    setName('');
-    setRole('');
-    setWhatsapp('');
-    setEmail('');
-
-  }, [email, name, role, whatsapp, history]);
-
-  useEffect(() => {
-    console.log('asddd')
-  }, [])
   return (
     <Container>
       <img className="planeta" src={planeta} alt="planeta-illustra" />
-      <form onSubmit={handleSubmitForm} action="/thanks">
+      <form action="/thanks">
         <h2>Preencha seus dados:</h2>
 
         <input
@@ -42,7 +26,7 @@ const FormComponent: React.FC = () => {
           type="text"
           required
           className="form"
-          placeholder="Seu nomee"
+          placeholder="Seu nome"
         />
         <input
           value={role}
@@ -72,8 +56,11 @@ const FormComponent: React.FC = () => {
           placeholder="Seu E-mail"
         />
 
-          
-        <input className="primary" type="submit" placeholder="Fazer meu cadastro"/>
+        <input
+          className="btn-primary"
+          type="submit"
+          placeholder="Fazer meu cadastro"
+        />
       </form>
       <img className="dinheiro" src={dinheiro} alt="dinheiro-icon" />
       <img className="cartao" src={cartao} alt="cartao-icon" />

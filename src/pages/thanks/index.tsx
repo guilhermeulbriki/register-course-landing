@@ -27,7 +27,7 @@ const Thanks: React.FC = () => {
 
           <a target="_blank" rel="noreferrer" href="https://mooneyapp.com.br/">
             <img src={bolas} alt="bolas" />
-            <button className="primary">Saiba mais sobre a Mooney</button>
+            <button className="btn-primary">Saiba mais sobre a Mooney</button>
           </a>
         </div>
       </Content>

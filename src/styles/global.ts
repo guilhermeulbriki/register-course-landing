@@ -117,7 +117,7 @@ export default createGlobalStyle`
     }
   }
 
-  button.primary {
+  .btn-primary {
     width: 100%;
     max-width: 408px;
     height: 56px;
